@@ -1,0 +1,19 @@
+name: 03 - reusable workflow outputs demo
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy-job:
+        uses: ./.github/workflows/deploy-application.yaml
+
+    notification-job:
+        runs-on: ubuntu-latest
+        needs:
+            - deploy-job
+        steps:
+            - name: send notification
+              run: |
+                echo "Sending notification..."
+                echo "Application deployed at ${{ needs.deploy-job.outputs.deployment_url }}"
+                echo "Notification sent successfully...."
