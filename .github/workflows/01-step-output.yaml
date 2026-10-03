@@ -1,0 +1,26 @@
+name: 01 - Step outputs demo
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deployment-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step 1
+              id: step1
+              run: |
+                echo "Hello from Step 1"
+                echo "step1_output=www.manoj-ece-com from Step 1" >> $GITHUB_ENV
+
+            - name: Step 2
+              id: step2
+              run: |
+                echo "Hello from Step 2"
+                echo "step2_output=www.manoj-pcb-com from Step 2" >> $GITHUB_ENV
+
+            - name: Step 3
+              id: step3
+              run: |
+                echo "Step 1 output: ${{ env.step1_output }}"
+                echo "Step 2 output: ${{ env.step2_output }}"
