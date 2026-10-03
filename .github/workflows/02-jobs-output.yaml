@@ -1,0 +1,28 @@
+name: 02 - jobs outputs
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy-job:
+        runs-on: ubuntu-latest
+        outputs:
+            deployment_url: ${{ steps.deploy.outputs.deployment_url }}
+        steps:
+            - name: Deploy application
+              id: deploy
+              run: |
+                echo "Deploying application..."
+                sleep 3
+                echo "deployment_url=https://www.mj.com" >> $GITHUB_OUTPUT"
+        
+    notification-job:
+        runs-on: ubuntu_latest
+        needs: 
+            - deploy-job
+        steps:
+            - name: send-notification
+              run: |
+                echo "Hello from Step 2"
+                echo "release_version2=1.1.1" >> $GITHUB_OUTPUT
+                echo $release_version2
