@@ -12,15 +12,18 @@ jobs:
               run: |
                 echo "Hello from Step 1"
                 echo "step1_output=www.manoj-ece-com from Step 1" >> $GITHUB_ENV
+                echo "release_version=1.0.0" >> $GITHUB_OUTPUT
 
             - name: Step 2
               id: step2
               run: |
                 echo "Hello from Step 2"
                 echo "step2_output=www.manoj-pcb-com from Step 2" >> $GITHUB_ENV
+                echo "release_version=1.1.1" >> $GITHUB_OUTPUT
 
             - name: Step 3
               id: step3
               run: |
                 echo "Step 1 output: ${{ env.step1_output }}"
                 echo "Step 2 output: ${{ env.step2_output }}"
+                echo "Release version: ${{ steps.step1.outputs.release_version }}"
