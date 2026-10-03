@@ -13,6 +13,8 @@ jobs:
                 echo "Hello from Step 1"
                 echo "step1_output=www.manoj-ece-com from Step 1" >> $GITHUB_ENV
                 echo "release_version=1.0.0" >> $GITHUB_OUTPUT
+                echo $step1_output 
+                echo $release_version
 
             - name: Step 2
               id: step2
@@ -20,6 +22,8 @@ jobs:
                 echo "Hello from Step 2"
                 echo "step2_output=www.manoj-pcb-com from Step 2" >> $GITHUB_ENV
                 echo "release_version=1.1.1" >> $GITHUB_OUTPUT
+                echo $step2_output 
+                echo $release_version
 
             - name: Step 3
               id: step3
