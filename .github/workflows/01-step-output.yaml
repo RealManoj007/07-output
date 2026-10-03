@@ -30,4 +30,5 @@ jobs:
               run: |
                 echo "Step 1 output: ${{ env.step1_output }}"
                 echo "Step 2 output: ${{ env.step2_output }}"
-                echo "Release version: ${{ steps.step1.outputs.release_version }}"
+                echo "Release version: ${{ steps.step1.outputs.release_version1 }}"
+                echo "Release version: ${{ steps.step1.outputs.release_version2 }}"
