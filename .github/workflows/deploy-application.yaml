@@ -19,5 +19,5 @@ jobs:
                 echo "deployment_url=https://www.mj.com" >> $GITHUB_OUTPUT
     
         outputs:
-            deployment_url: ${{ steps.deploy.output.deployment_url}}
+            deployment_url: ${{ steps.deploy.outputs.deployment_url}}
     
